@@ -1,0 +1,1 @@
+FROM supermanito/helloworld:latest
