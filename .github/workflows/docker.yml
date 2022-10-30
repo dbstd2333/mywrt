@@ -10,22 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@master
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@master
 
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        uses: docker/login-action@master
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push qinglong to Dockerhub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@master
         with:
           context: qinglong
           platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
@@ -33,15 +33,15 @@ jobs:
           tags: summary/qinglong:latest
 
       - name: Push helloworld to Dockerhub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@master
         with:
           context: helloworld
-          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
           tags: summary/jd:helloworld
 
       - name: Push 6053537-amd64 to Dockerhub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@master
         with:
           context: portainer-ce/6053537-amd64
           platforms: linux/amd64
@@ -49,7 +49,7 @@ jobs:
           tags: summary/portainer-ce:amd64
 
       - name: Push 6053537-arm64 to Dockerhub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@master
         with:
           context: portainer-ce/6053537-arm64
           platforms: linux/amd64
@@ -57,7 +57,7 @@ jobs:
           tags: summary/portainer-ce:arm64
 
       - name: Push 6053537-armv7 to Dockerhub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@master
         with:
           context: portainer-ce/6053537-armv7
           platforms: linux/amd64
@@ -65,7 +65,7 @@ jobs:
           tags: summary/portainer-ce:armv7
 
       - name: Push 6053537-ppc64le to Dockerhub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@master
         with:
           context: portainer-ce/6053537-ppc64le
           platforms: linux/amd64
