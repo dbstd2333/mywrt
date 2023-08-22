@@ -3,7 +3,7 @@ name: Build Docker
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 15 */2 * *'
+    - cron: '0 15 */3 * *'
 
 jobs:
   docker:
