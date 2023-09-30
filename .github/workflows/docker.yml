@@ -32,22 +32,6 @@ jobs:
           push: true
           tags: summary/qinglong:latest
 
-      - name: Push helloworld to Dockerhub
-        uses: docker/build-push-action@master
-        with:
-          context: helloworld
-          platforms: linux/amd64,linux/arm/v7,linux/arm64
-          push: true
-          tags: summary/jd:helloworld
-
-      - name: Push portainer-ce to Dockerhub
-        uses: docker/build-push-action@master
-        with:
-          context: portainer-ce
-          platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
-          push: true
-          tags: summary/portainer-ce:2.19.1
-
       - name: Push portainer-ce to Dockerhub
         uses: docker/build-push-action@master
         with:
