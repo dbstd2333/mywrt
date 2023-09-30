@@ -46,7 +46,7 @@ jobs:
           context: portainer-ce
           platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
-          tags: summary/portainer-ce:latest
+          tags: summary/portainer-ce:2.19.0
 
       - name: Delete older Workflows
         uses: GitRML/delete-workflow-runs@main
