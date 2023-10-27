@@ -1,8 +1,10 @@
-name: Build Docker
+name: Docker Image Sync
 
 on:
   workflow_dispatch:
   push:
+    branches:
+      - master
     paths:
       - .github/workflows/docker.yml
   schedule:
@@ -30,7 +32,7 @@ jobs:
       - name: Push qinglong to Dockerhub
         uses: docker/build-push-action@master
         with:
-          context: qinglong
+          context: docker/qinglong
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           tags: summary/qinglong:latest
@@ -38,7 +40,7 @@ jobs:
       - name: Push portainer-ce to Dockerhub
         uses: docker/build-push-action@master
         with:
-          context: portainer-ce
+          context: docker/portainer-ce
           platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           tags: summary/portainer-ce:latest
@@ -48,4 +50,4 @@ jobs:
         with:
          token: ${{ secrets.GITHUB_TOKEN }}
          keep_minimum_runs: 0
-         retain_days: 1
+         retain_days: 3
