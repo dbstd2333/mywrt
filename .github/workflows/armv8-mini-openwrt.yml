@@ -114,7 +114,7 @@ jobs:
         echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
 
     - name: Check Space Usage
-      if: always()
+      if: (!cancelled())
       run: df -hT
 
     - name: Organize Files
