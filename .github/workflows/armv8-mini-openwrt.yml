@@ -180,7 +180,7 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         OPENWRT_ARMVIRT: openwrt-armvirt/*rootfs.tar.gz
-        PACKAGE_SOC: all
+        PACKAGE_SOC: s905d
         KERNEL_VERSION_NAME: 5.15.13_6.1.5
         KERNEL_AUTO_LATEST: true
 
