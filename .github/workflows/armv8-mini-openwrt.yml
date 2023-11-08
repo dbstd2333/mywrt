@@ -174,6 +174,7 @@ jobs:
         wget -q -P openwrt-armvirt https://github.com/$GITHUB_REPOSITORY/releases/download/$(cat DOWNLOAD_ARMVIRT)
         echo "status=success" >> $GITHUB_OUTPUT
         echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date +"%y.%m.%d")" >> $GITHUB_ENV
 
     - name: Package OpenWrt Firmware
       if: steps.download.outputs.status == 'success'
@@ -183,6 +184,7 @@ jobs:
         PACKAGE_SOC: s905d
         KERNEL_VERSION_NAME: 5.15.13_6.1.5
         KERNEL_AUTO_LATEST: true
+        DISTRIB_REVISION: R${{ env.DATE1 }}
 
     - name: Upload OpenWrt To Release
       if: env.PACKAGED_STATUS == 'success' && env.OPENWRT_RELEASE == 'true'
