@@ -46,8 +46,8 @@ jobs:
           tags: summary/portainer-ce:latest
 
       - name: Delete older Workflows
-        uses: GitRML/delete-workflow-runs@main
+        uses: Mattraks/delete-workflow-runs@main
         with:
          token: ${{ secrets.GITHUB_TOKEN }}
-         keep_minimum_runs: 0
          retain_days: 3
+         keep_minimum_runs: 0
