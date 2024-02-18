@@ -102,6 +102,9 @@ find package/luci-theme-*/ -type f -name '*luci-theme-*' -print -exec sed -i '/s
 # 添加防火墙规则
 sed -i '/PREROUTING/s/^#//' package/lean/default-settings/files/zzz-default-settings
 
+# 去除 iperf3-ssl
+sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
+
 # 调整 Docker 到 服务 菜单
 sed -i 's/"admin"/"admin", "services"/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
 sed -i 's/"admin"/"admin", "services"/g; s/admin\//admin\/services\//g' feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
