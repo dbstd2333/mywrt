@@ -166,7 +166,7 @@ jobs:
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: s905d
-        KERNEL_VERSION_NAME: 5.15.13_6.1.5
+        KERNEL_VERSION_NAME: 6.1.87_6.6.28
         KERNEL_AUTO_LATEST: true
         DISTRIB_REVISION: R${{ env.DATE1 }}
 
