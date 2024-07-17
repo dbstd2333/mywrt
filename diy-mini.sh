@@ -34,7 +34,7 @@ git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/lu
 # git_sparse_clone master https://github.com/syb999/openwrt-19.07.1 package/network/services/msd_lite
 
 # 科学上网插件
-git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
@@ -100,7 +100,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 find package/luci-theme-*/ -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
 # 添加防火墙规则
-sed -i '/PREROUTING/s/^#//' package/lean/default-settings/files/zzz-default-settings
+# sed -i '/PREROUTING/s/^#//' package/lean/default-settings/files/zzz-default-settings
 
 # 去除 iperf3-ssl
 # sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
